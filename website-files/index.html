@@ -13,10 +13,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="text-xl justify-evenly">
+<body class="text-xl">
   <div class="flex">
     <!-- Inputs -->
-    <div class="w-1/2">
+    <div class="mx-auto">
       <!-- All stat inputs -->
       <div class="flex flex-col items-center justify-center h-screen">
         <!-- Officer specific -->
@@ -63,24 +63,67 @@
           </div>
         </div>
         <!-- Call Modifiers -->
-        <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
-          <div class="mx-2">
-            <label for="callsMinus">Subtract</label>
-            <input class="border-2 border-black rounded-md mb-2" type="number" name="callSub" id="callsMinus">
-          </div>
+        <div class="flex flex-col border-2 border-black rounded-md mb-2 px-1 py-2">
+          <label class="text-center" for="">Call Modifiers</label>
+          <div class="flex">
+            <div class="mx-2">
+              <label for="callsMinus">Subtract</label>
+              <input class="border-2 border-black rounded-md mb-2" type="number" name="callSub" id="callsMinus">
+            </div>
 
-          <div class="mx-2">
-            <label for="callsPlus">Add</label>
-            <input class="border-2 border-black rounded-md mb-2" type="number" name="callAdd" id="callsAdd">
+            <div class="mx-2">
+              <label for="callsPlus">Add</label>
+              <input class="border-2 border-black rounded-md mb-2" type="number" name="callAdd" id="callsAdd">
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Outputs -->
-    <div class="w-1/2">
+    <div class="mx-auto">
       <div class="flex flex-col items-center justify-center h-screen">
-        <p>output goes here</p>
+        <div class="wContract w-full">
+          <div class="">
+            <label for="">Contract</label>
+            <p class="border-2 border-black rounded-md text-center my-2">0</p>
+          </div>
+        </div>
+
+        <div class="wPayoutPending w-full">
+          <div class="">
+            <label for="">Payout Pending</label>
+            <p class="border-2 border-black rounded-md text-center my-2">0</p>
+          </div>
+        </div>
+
+        <div class="wPayout w-full">
+          <div class="">
+            <label for="">Payout</label>
+            <p class="border-2 border-black rounded-md text-center my-2">0</p>
+          </div>
+        </div>
+
+        <div class="wUpdates w-full">
+          <div class="">
+            <label for="">Updates</label>
+            <p class="border-2 border-black rounded-md text-center my-2">0</p>
+          </div>
+        </div>
+
+        <div class="wCalls w-full">
+          <div class="">
+            <label for="">Calculated Calls</label>
+            <p class="border-2 border-black rounded-md text-center my-2">0</p>
+          </div>
+        </div>
+
+        <div class="wTotal w-full">
+          <div class="">
+            <label for="">Total Actions</label>
+            <p class="border-2 border-black rounded-md text-center my-2">0</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
