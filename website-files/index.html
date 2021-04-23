@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Bus Stats</title>
+
+  <!-- Tailwind CSS -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Local external CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="text-xl justify-evenly">
+  <div class="flex">
+    <!-- Inputs -->
+    <div class="w-1/2">
+      <!-- All stat inputs -->
+      <div class="flex flex-col items-center justify-center h-screen">
+        <!-- Officer specific -->
+        <div class="">
+          <!-- Contracts -->
+          <div class="mb-2">
+            <label for="contract">Contracts</label>
+            <input class="border-2 border-black rounded-md mb-2" type="number" name="contract" id="contract">
+          </div>
+
+          <!-- Payouts -->
+          <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
+            <div class="mx-2">
+              <label for="pPending">Payout Pendings</label>
+              <input class="border-2 border-black rounded-md mb-2" type="number" name="pPayout" id="pPayout">
+            </div>
+
+            <div class="mx-2">
+              <label for="payout">Payouts</label>
+              <input class="border-2 border-black rounded-md mb-2" type="number" name="payout" id="payout">
+            </div>
+          </div>
+        </div>
+
+        <!-- General stats -->
+        <div class="mx-2">
+          <!-- Updates -->
+          <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
+            <div class="mx-2">
+              <label for="mUpdate">Manual Update</label>
+              <input class="border-2 border-black rounded-md mb-2" type="number" name="mUpdate" id="mUpdate">
+            </div>
+
+            <div class="mx-2">
+              <label for="pUpdate">Podium Update</label>
+              <input class="border-2 border-black rounded-md mb-2" type="number" name="pUpdate" id="pUpdate">
+            </div>
+          </div>
+
+          <!-- Calls -->
+          <div class="mb-2">
+            <label for="calls">Calls</label>
+            <input class="border-2 border-black rounded-md" type="number" name="calls" id="calls">
+          </div>
+        </div>
+        <!-- Call Modifiers -->
+        <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
+          <div class="mx-2">
+            <label for="callsMinus">Subtract</label>
+            <input class="border-2 border-black rounded-md mb-2" type="number" name="callSub" id="callsMinus">
+          </div>
+
+          <div class="mx-2">
+            <label for="callsPlus">Add</label>
+            <input class="border-2 border-black rounded-md mb-2" type="number" name="callAdd" id="callsAdd">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Outputs -->
+    <div class="w-1/2">
+      <div class="flex flex-col items-center justify-center h-screen">
+        <p>output goes here</p>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
