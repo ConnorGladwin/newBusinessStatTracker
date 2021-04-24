@@ -51,21 +51,28 @@
           <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
             <div class="mx-2">
               <label for="mUpdate">Manual Update</label>
-              <input class="border-2 border-black rounded-md mb-2" type="number" name="mUpdate" id="mUpdate"
-                placeholder="0">
+              <input onclick="this.focus; this.select()" onchange="updateChange()"
+                class="border-2 border-black rounded-md mb-2" type="number" name="mUpdate" id="mUpdate" placeholder="0">
             </div>
 
             <div class="mx-2">
               <label for="pUpdate">Podium Update</label>
-              <input class="border-2 border-black rounded-md mb-2" type="number" name="pUpdate" id="pUpdate"
-                placeholder="0">
+              <input onclick="this.focus; this.select()" onchange="updateChange()"
+                class="border-2 border-black rounded-md mb-2" type="number" name="pUpdate" id="pUpdate" placeholder="0">
             </div>
           </div>
 
           <!-- Calls -->
-          <div class="mb-2">
-            <label for="call">Calls</label>
-            <input class="border-2 border-black rounded-md" type="number" name="calls" id="call" placeholder="0">
+          <div class="flex mb-2">
+            <div class="">
+              <label for="call">Calls</label>
+              <input onclick="this.focus(); this.select()" onchange="callChange()"
+                class="border-2 border-black rounded-md" type="number" name="calls" id="call" placeholder="0">
+            </div>
+            <div class="w-full mx-2">
+              <label for="calcCalls">Calculated Calls</label>
+              <p class="calcCalls border-2 border-black rounded-md text-center">0</p>
+            </div>
           </div>
         </div>
         <!-- Call Modifiers -->
@@ -74,14 +81,14 @@
           <div class="flex">
             <div class="mx-2">
               <label for="callSub">Subtract</label>
-              <input class="border-2 border-black rounded-md mb-2" type="number" name="callSub" id="callSub"
-                placeholder="0">
+              <input onclick="this.focus(); this.select()" onchange="callChange()"
+                class="border-2 border-black rounded-md mb-2" type="number" name="callSub" id="callSub" placeholder="0">
             </div>
 
             <div class="mx-2">
               <label for="callAdd">Add</label>
-              <input class="border-2 border-black rounded-md mb-2" type="number" name="callAdd" id="callAdd"
-                placeholder="0">
+              <input onclick="this.focus(); this.select()" onchange="callChange()"
+                class="border-2 border-black rounded-md mb-2" type="number" name="callAdd" id="callAdd" placeholder="0">
             </div>
           </div>
         </div>
@@ -101,7 +108,7 @@
         <div class="w-full">
           <div class="w-full">
             <label for="">Payout Pending</label>
-            <p class="wPayoutPending border-2 border-black rounded-md text-center my-2">0</p>
+            <p class="wPending border-2 border-black rounded-md text-center my-2">0</p>
           </div>
         </div>
 
@@ -121,7 +128,7 @@
 
         <div class="w-full">
           <div class="">
-            <label for="">Calculated Calls</label>
+            <label for="">Weighted Calls</label>
             <p class="wCalls border-2 border-black rounded-md text-center my-2">0</p>
           </div>
         </div>
