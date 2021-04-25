@@ -1,6 +1,4 @@
-// TODO
-// Set totals to local storages
-
+// declaration of variables for total calc
 let wContract = 0;
 let wPending = 0;
 let wPayout = 0;
@@ -33,8 +31,11 @@ function payoutChange() {
 
 // output calculated update value
 function updateChange() {
-  let m = parseInt(document.getElementById('mUpdate').value) / 3;
-  let p = parseInt(document.getElementById('pUpdate').value) / 3;
+  let m = parseInt(document.getElementById('mUpdate').value);
+  let p = parseInt(document.getElementById('pUpdate').value);
+
+  setStorage('mUpdate', m);
+  setStorage('pUpdate', p);
 
   if (Number.isNaN(p)) {
     p = 0;
@@ -46,10 +47,10 @@ function updateChange() {
 
   // calculates the ceiling of the two values when added
   // and displays output
-  document.querySelector('.wUpdates').textContent = checkZero(Math.ceil(m + p));
-  setStorage('mUpdates', m);
-  setStorage('pUpdates', p);
-  return (wUpdate = Math.ceil(m + p));
+  document.querySelector('.wUpdates').textContent = checkZero(
+    Math.ceil((m + p) / 3)
+  );
+  return (wUpdate = Math.ceil((m + p) / 3));
 }
 
 // output calculated call value
@@ -66,7 +67,7 @@ function callChange() {
   }
 
   const total = call + add - sub;
-  document.querySelector('.calcCalls').textContent = total;
+  document.querySelector('.calcCalls').textContent = checkZero(total);
   document.querySelector('.wCalls').textContent = checkZero(
     Math.ceil(total / 3)
   );
@@ -77,6 +78,18 @@ function callChange() {
 }
 
 function calcTotal() {
+  console.log(
+    'contracts',
+    wContract,
+    'pendings',
+    wPending,
+    'payouts',
+    wPayout,
+    'updates',
+    wUpdate,
+    'calls',
+    wCalls
+  );
   const total = wContract + wPending + wPayout + wUpdate + wCalls;
   document.querySelector('.wTotal').textContent = checkZero(total);
 }
@@ -95,6 +108,8 @@ function setStorage(key, value) {
 }
 
 function getStorage() {
+  // gets all values from local storage, sets them as the input
+  // and reruns the functions to update the total values
   document.getElementById('contract').value = localStorage.getItem('contract');
   contractChange();
   document.getElementById('pending').value = localStorage.getItem('pending');
@@ -104,6 +119,13 @@ function getStorage() {
   document.getElementById('mUpdate').value = localStorage.getItem('mUpdate');
   document.getElementById('pUpdate').value = localStorage.getItem('pUpdate');
   updateChange();
+  document.getElementById('call').value = localStorage.getItem('call');
+  document.getElementById('callAdd').value = localStorage.getItem('add');
+  document.getElementById('callSub').value = localStorage.getItem('sub');
+  callChange();
+
+  // runs the calcTotal function to recalculate the total actions
+  calcTotal();
 }
 
 window.onload = getStorage();
