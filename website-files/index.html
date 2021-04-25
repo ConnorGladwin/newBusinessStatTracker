@@ -25,7 +25,7 @@
           <div class="mb-2">
             <label for="contract">Contracts</label>
             <!-- onclick event focuses and selects -->
-            <input onclick="this.focus(); this.select();" onchange="contractChange()"
+            <input onclick="this.focus(); this.select();" onchange="contractChange(); calcTotal()"
               class="border-2 border-black rounded-md mb-2" type="number" name="contract" id="contract" placeholder="0">
           </div>
 
@@ -33,13 +33,13 @@
           <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
             <div class="mx-2">
               <label for="pPending">Payout Pendings</label>
-              <input onclick="this.focus(); this.select()" onchange="pPendingChange()"
-                class="border-2 border-black rounded-md mb-2" type="number" name="pPayout" id="pPayout" placeholder="0">
+              <input onclick="this.focus(); this.select()" onchange="pendingChange(); calcTotal()"
+                class="border-2 border-black rounded-md mb-2" type="number" name="pPayout" id="pending" placeholder="0">
             </div>
 
             <div class="mx-2">
               <label for="payout">Payouts</label>
-              <input onclick="this.focus(); this.select()" onchange="payoutChange()"
+              <input onclick="this.focus(); this.select()" onchange="payoutChange(); calcTotal()"
                 class="border-2 border-black rounded-md mb-2" type="number" name="payout" id="payout" placeholder="0">
             </div>
           </div>
@@ -51,13 +51,13 @@
           <div class="flex border-2 border-black rounded-md mb-2 px-1 py-2">
             <div class="mx-2">
               <label for="mUpdate">Manual Update</label>
-              <input onclick="this.focus; this.select()" onchange="updateChange()"
+              <input onclick="this.focus; this.select()" onchange="updateChange(); calcTotal()"
                 class="border-2 border-black rounded-md mb-2" type="number" name="mUpdate" id="mUpdate" placeholder="0">
             </div>
 
             <div class="mx-2">
               <label for="pUpdate">Podium Update</label>
-              <input onclick="this.focus; this.select()" onchange="updateChange()"
+              <input onclick="this.focus; this.select()" onchange="updateChange(); calcTotal()"
                 class="border-2 border-black rounded-md mb-2" type="number" name="pUpdate" id="pUpdate" placeholder="0">
             </div>
           </div>
@@ -66,7 +66,7 @@
           <div class="flex mb-2">
             <div class="">
               <label for="call">Calls</label>
-              <input onclick="this.focus(); this.select()" onchange="callChange()"
+              <input onclick="this.focus(); this.select()" onchange="callChange(); calcTotal()"
                 class="border-2 border-black rounded-md" type="number" name="calls" id="call" placeholder="0">
             </div>
             <div class="w-full mx-2">
@@ -81,13 +81,13 @@
           <div class="flex">
             <div class="mx-2">
               <label for="callSub">Subtract</label>
-              <input onclick="this.focus(); this.select()" onchange="callChange()"
+              <input onclick="this.focus(); this.select()" onchange="callChange(); calcTotal()"
                 class="border-2 border-black rounded-md mb-2" type="number" name="callSub" id="callSub" placeholder="0">
             </div>
 
             <div class="mx-2">
               <label for="callAdd">Add</label>
-              <input onclick="this.focus(); this.select()" onchange="callChange()"
+              <input onclick="this.focus(); this.select()" onchange="callChange(); calcTotal()"
                 class="border-2 border-black rounded-md mb-2" type="number" name="callAdd" id="callAdd" placeholder="0">
             </div>
           </div>
@@ -115,7 +115,7 @@
         <div class="w-full">
           <div class="">
             <label for="">Payout</label>
-            <p class="wPayout border-2 border-black rounded-md text-center my-2">0</p>
+            <p onchange="calcTotal()" class="wPayout border-2 border-black rounded-md text-center my-2">0</p>
           </div>
         </div>
 
