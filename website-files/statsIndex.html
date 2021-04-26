@@ -17,7 +17,7 @@
 </head>
 
 <body class="text-xl">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-md navbar-light bg-light w-full">
     <nav class="navbar navbar-light bg-light">
       <span class="navbar-brand mb-0 h1">New Business Stats</span>
     </nav>
@@ -25,7 +25,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item px-1 py-2 mr-2">
-          <button type="button" class="btn btn-outline-success" href="" onclick="sendEmail()">Coming
+          <button class="emailBtn btn btn-outline-success" href="" onclick="sendEmail()">Coming
             Soon</button>
         </li>
         <li class="nav-item px-1 py-2">
@@ -168,6 +168,9 @@
   <!-- JavaScrpit -->
   <!-- Page JS -->
   <script src="stats.js"></script>
+  <!-- jsPDF -->
+  <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

@@ -130,7 +130,11 @@ function getStorage() {
 }
 
 function sendEmail() {
-  alert(`This feature isn't ready yet`);
+  alert(`This function isn't ready yet`);
+  const btn = document.querySelector('.emailBtn');
+
+  btn.disabled = true;
+  btn.classList.add('cursor-not-allowed');
 }
 
 function clearStats() {
