@@ -7,32 +7,32 @@ let wCalls = 0;
 
 // output contract value
 function contractChange() {
-  input = parseInt(document.getElementById('contract').value);
-  document.querySelector('.wContract').textContent = checkZero(input);
+  input = checkZero(parseInt(document.getElementById('contract').value));
+  document.querySelector('.wContract').textContent = input;
   setStorage('contract', input);
   return (wContract = input);
 }
 
 // output payout pending value
 function pendingChange() {
-  input = parseInt(document.getElementById('pending').value);
-  document.querySelector('.wPending').textContent = checkZero(input);
+  input = checkZero(parseInt(document.getElementById('pending').value));
+  document.querySelector('.wPending').textContent = input;
   setStorage('pending', input);
   return (wPending = input);
 }
 
 // output payout value
 function payoutChange() {
-  input = parseInt(document.getElementById('payout').value);
-  document.querySelector('.wPayout').textContent = checkZero(input);
+  input = checkZero(parseInt(document.getElementById('payout').value));
+  document.querySelector('.wPayout').textContent = input;
   setStorage('payout', input);
   return (wPayout = input);
 }
 
 // output calculated update value
 function updateChange() {
-  let m = parseInt(document.getElementById('mUpdate').value);
-  let p = parseInt(document.getElementById('pUpdate').value);
+  let m = checkZero(parseInt(document.getElementById('mUpdate').value));
+  let p = checkZero(parseInt(document.getElementById('pUpdate').value));
 
   setStorage('mUpdate', m);
   setStorage('pUpdate', p);
@@ -55,9 +55,9 @@ function updateChange() {
 
 // output calculated call value
 function callChange() {
-  const call = parseInt(document.getElementById('call').value);
-  let add = parseInt(document.getElementById('callAdd').value);
-  let sub = parseInt(document.getElementById('callSub').value);
+  const call = checkZero(parseInt(document.getElementById('call').value));
+  let add = checkZero(parseInt(document.getElementById('callAdd').value));
+  let sub = checkZero(parseInt(document.getElementById('callSub').value));
 
   if (Number.isNaN(add)) {
     add = 0;
