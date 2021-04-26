@@ -1,4 +1,4 @@
-// declaration of variables for total calc
+// variable declaration for total calc
 let wContract = 0;
 let wPending = 0;
 let wPayout = 0;
@@ -10,6 +10,7 @@ function contractChange() {
   input = checkZero(parseInt(document.getElementById('contract').value));
   document.querySelector('.wContract').textContent = input;
   setStorage('contract', input);
+  console.log('click');
   return (wContract = input);
 }
 
@@ -126,6 +127,29 @@ function getStorage() {
 
   // runs the calcTotal function to recalculate the total actions
   calcTotal();
+}
+
+function sendEmail() {
+  alert(`This feature isn't ready yet`);
+}
+
+function clearStats() {
+  if (
+    confirm(
+      'Clear stat tracker? - You will not be able to recover the input items'
+    )
+  ) {
+    localStorage.clear();
+    const elements = document.getElementsByTagName('input');
+    for (let i = 0; i < elements.length; i++) {
+      if (elements[i].type == 'number') {
+        elements[i].value = 0;
+      }
+    }
+    // calls the getStorage function to replace all values
+    // and recalculate totals
+    getStorage();
+  }
 }
 
 window.onload = getStorage();
