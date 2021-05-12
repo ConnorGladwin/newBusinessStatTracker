@@ -1,3 +1,6 @@
+// TODO
+// Refactor to React
+
 // variable declaration for total calc
 let wContract = 0;
 let wPending = 0;
