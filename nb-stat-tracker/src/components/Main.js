@@ -1,6 +1,9 @@
+// TODO 
+// Seperate inputs and outputs into different components
+
 import React from 'react';
 
-class Contract extends React.Component {
+class Main extends React.Component {
 
   state = {
     contract: 0,
@@ -8,6 +11,12 @@ class Contract extends React.Component {
     updates: 0,
     calls: 0,
     total: 0
+  }
+
+  calcStats = (value, id) => {
+    this.setState({
+      [id]: value
+    });
   }
 
   render() {
@@ -23,7 +32,7 @@ class Contract extends React.Component {
                 {/* Contracts */}
                 <div className="mb-2">
                   <label htmlFor="contract" className="flex justify-start mb-2">Contracts</label>
-                  <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md mb-2" placeholder="0"/>
+                  <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={(e) => this.calcStats(e.target.value, e.target.id)} />
                 </div>
 
                 {/* Payouts */}
@@ -31,12 +40,12 @@ class Contract extends React.Component {
                   {/* Pending */}
                   <div className="mx-2">
                     <label htmlFor="pPending" className="flex justify-start mb-2">Payout Pending</label>
-                    <input type="number" name="pending" id="pending" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                    <input type="number" name="pending" id="pending" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={(e) => this.calcStats(e.target.value, e.target.id)} />
                   </div>
                   {/* Payout */}
                   <div className="mx-2">
                     <label htmlFor="payout" className="flex justify-start mb-2">Payouts</label>
-                    <input type="number" name="payout" id="payout" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                    <input type="number" name="payout" id="payout" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={(e) => this.calcStats(e.target.value, e.target.id)} />
                   </div>
                 </div>
               </div>
@@ -47,11 +56,11 @@ class Contract extends React.Component {
                 <div className="flex border-2 border-black rounded-md mb-2 px-1 py-2">
                   <div className="mx-2">
                     <label htmlFor="mUpdate" className="flex justify-start mb-2">Manual Update</label>
-                    <input type="number" name="mUpdate" id="mUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                    <input type="number" name="mUpdate" id="mUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={(e) => this.calcStats(e.target.value, e.target.id)} />
                   </div>
                   <div className="mx-2">
                     <label htmlFor="pUpdate" className="flex justify-start mb-2">Podium Update</label>
-                    <input type="number" name="pUpdate" id="pUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                    <input type="number" name="pUpdate" id="pUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={(e) => this.calcStats(e.target.value, e.target.id)} />
                   </div>                  
                 </div>
                 {/* Calls */}
@@ -123,4 +132,4 @@ class Contract extends React.Component {
   }
 }
 
-export default Contract;
+export default Main;

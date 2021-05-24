@@ -5,13 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 // component imports
 import Navbar from './components/Navbar';
-import Contract  from './components/Contract';
+import Main  from './components/Main';
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Contract />
+      <Main />
     </div>
   );
 }
