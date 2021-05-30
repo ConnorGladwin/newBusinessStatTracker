@@ -1,5 +1,4 @@
 // TODO
-// Add calc functionality
 
 import React from 'react'
 
@@ -15,12 +14,12 @@ class Inputs extends React.Component {
               {/* Apps */}
               <div className="mx-2">
                 <label htmlFor="apps" className="flex justify-start mb-2">Applications</label>
-                <input type="number" name="apps" id="apps" className="border-2 border-black rounded-md" placeholder="0" />
+                <input type="number" name="apps" id="apps" className="border-2 border-black rounded-md" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'apps')} />
               </div>
               {/* Contracts */}
               <div className="mx-2">
                 <label htmlFor="contract" className="flex justify-start mb-2">Contracts</label>
-                <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md" placeholder="0" />
+                <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'contract')} />
               </div>
             </div>
             {/* Payouts */}
@@ -28,12 +27,12 @@ class Inputs extends React.Component {
               {/* Pending */}
               <div className="mx-2">
                 <label htmlFor="pending" className="flex justify-start mb-2">Payout Pending</label>
-                <input type="number" name="pending" id="pending" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="pending" id="pending" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'pending')} />
               </div>
               {/* Payout */}
               <div className="mx-2">
                 <label htmlFor="payout" className="flex justify-start mb-2">Payout</label>
-                <input type="number" name="payout" id="payout" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="payout" id="payout" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'payout')} />
               </div>
             </div>
           </div>
@@ -43,18 +42,18 @@ class Inputs extends React.Component {
             <div className="flex border-2 border-black rounded-md mb-2 px-1 py-2">
               <div className="mx-2">
                 <label htmlFor="mUpadte" className="flex justify-start mb-2">Manual Update</label>
-                <input type="number" name="mUpdate" id="mUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="mUpdate" id="mUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'mUpdate')} />
               </div>
               <div className="mx-2">
                 <label htmlFor="pUpdate" className="flex justify-start mb-2">Podium Update</label>
-                <input type="number" name="pUpdate" id="pUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="pUpdate" id="pUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'pUpdate')} />
               </div>
             </div>
             {/* Calls */}
             <div className="flex mb-2">
               <div className="">
                 <label htmlFor="calls" className="flex justify-start mb-2">Calls</label>
-                <input type="number" name="calls" id="calls" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="calls" id="calls" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'call')} />
               </div>
               <div className="w-full mx-2">
                 <label htmlFor="calcCalls" className="flex justify-start mb-2">Calculated Calls</label>
@@ -68,11 +67,11 @@ class Inputs extends React.Component {
             <div className="flex">
               <div className="mx-2">
                 <label htmlFor="callSub" className="flex justify-start mb-2">Subtract</label>
-                <input type="number" name="callSub" id="callSub" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="callSub" id="callSub" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'callSub')} />
               </div>
               <div className="mx-2">
                 <label htmlFor="callAdd" className="flex justify-start mb-2">Add</label>
-                <input type="number" name="callAdd" id="callAdd" className="border-2 border-black rounded-md mb-2" placeholder="0" />
+                <input type="number" name="callAdd" id="callAdd" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'callAdd')} />
               </div>
             </div>
           </div>

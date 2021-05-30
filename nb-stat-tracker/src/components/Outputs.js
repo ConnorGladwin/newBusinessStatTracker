@@ -1,5 +1,5 @@
 // TODO
-// Add functionality to display weighted totals 
+// Display all weighted totals
 
 import React from 'react';
 
@@ -11,13 +11,13 @@ class Outputs extends React.Component {
           <div className="w-full">
             <div className="">
               <label htmlFor="wApps" className="flex justify-start mb-2">Applications</label>
-              <p className="wApps border-2 border-black rounded-md text-center my-2">0</p>
+              <p className="wApps border-2 border-black rounded-md text-center my-2">{this.props.apps}</p>
             </div>
           </div>
           <div className="w-full">
             <div className="">
               <label htmlFor="wContract" className="flex justify-start mb-2">Contracts</label>
-              <p className="wContract border-2 border-black rounded-md text-center my-2">0</p>
+              <p className="wContract border-2 border-black rounded-md text-center my-2">{this.props.contract}</p>
             </div>
           </div>
           <div className="w-full">

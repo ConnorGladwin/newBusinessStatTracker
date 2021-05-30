@@ -7,7 +7,10 @@ class Navbar extends React.Component {
         window.confirm (
           'Clear stat tracker? - You will not be able to recover the input items'
         )
-      );
+      ) {
+        window.localStorage.clear();
+        console.log('Cleared');
+      };
     } else {
       alert(`This feature isn't ready yet`);
     }
