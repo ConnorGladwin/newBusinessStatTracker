@@ -4,3 +4,8 @@ export function checkZero(num) {
   }
   return parseInt(num)
 }
+
+export function weightCalc(num) {
+  num = Math.ceil(num / 3);
+  return num;
+}

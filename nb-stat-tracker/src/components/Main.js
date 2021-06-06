@@ -26,10 +26,9 @@ class Main extends React.Component {
     this.state = {
       apps: 0,
       contract: 0,
-      pening: 0,
+      pending: 0,
       payout: 0,
-      update: 0,
-      calls: 0,
+      call: 0,
       callSub: 0,
       callAdd: 0,
       total: 0
@@ -50,18 +49,22 @@ class Main extends React.Component {
           apps={this.state.apps}
           contract={this.state.contract}
           payout={this.state.payout}
-          pending={this.state.payout}
-          update={this.state.update}
-          calls={this.state.calls}
+          pending={this.state.pending}
+          mUpdate={this.state.mUpdate}
+          pUpdate={this.state.pUpdate}
+          calls={this.state.call}
           calcStats={this.calcStats}
          />
          <Outputs
           apps={this.state.apps}
           contract={this.state.contract}
           payout={this.state.payout}
-          pending={this.state.payout}
-          update={this.state.update}
-          calls={this.state.calls}
+          pending={this.state.pending}
+          mUpdate={this.state.mUpdate}
+          pUpdate={this.state.pUpdate}
+          call={this.state.call}
+          callSub={this.state.callSub}
+          callAdd={this.state.callAdd}
          />
         </div>
       </div>
