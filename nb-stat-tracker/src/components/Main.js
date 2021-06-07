@@ -1,11 +1,9 @@
-// TODO 
-// Add functionality to display weighted totals 
-// Create a way to check input id & calculate totals
-
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import Navbar from './Navbar';
 import Inputs from './Inputs';
 import Outputs from './Outputs';
+import { reset } from '../functions'
 
 class Main extends React.Component {
 
@@ -35,37 +33,59 @@ class Main extends React.Component {
     }
   }
 
+  // recieves the value and id from the input component
+  // and updates state, then sets it to localStorage
   calcStats = (value, id) => {
     this.setState((state) => {
       return {[id]: value}
     });
+    // adds stats to localStorage
+    localStorage.setItem(id, value);
+  }
+
+  clearStats = event => {
+    if (
+      window.confirm (
+        'Clear stat tracker? - You will not be able to recover the input items'
+      )
+    ) {
+      window.localStorage.clear();
+      console.log('Cleared');
+    };
   }
 
   render() {
     return (
-      <div className="text-xl">
-        <div className="flex mx-14 my-14">
-         <Inputs
-          apps={this.state.apps}
-          contract={this.state.contract}
-          payout={this.state.payout}
-          pending={this.state.pending}
-          mUpdate={this.state.mUpdate}
-          pUpdate={this.state.pUpdate}
-          calls={this.state.call}
-          calcStats={this.calcStats}
-         />
-         <Outputs
-          apps={this.state.apps}
-          contract={this.state.contract}
-          payout={this.state.payout}
-          pending={this.state.pending}
-          mUpdate={this.state.mUpdate}
-          pUpdate={this.state.pUpdate}
-          call={this.state.call}
-          callSub={this.state.callSub}
-          callAdd={this.state.callAdd}
-         />
+      <div>
+        <Navbar 
+          clearStats={this.clearStats}
+        />
+        <div className="text-xl">
+          <div className="flex mx-14 my-14">
+          <Inputs
+            apps={this.state.apps}
+            contract={this.state.contract}
+            payout={this.state.payout}
+            pending={this.state.pending}
+            mUpdate={this.state.mUpdate}
+            pUpdate={this.state.pUpdate}
+            call={this.state.call}
+            callAdd={this.state.callAdd}
+            callSub={this.state.callSub}
+            calcStats={this.calcStats}
+          />
+          <Outputs
+            apps={this.state.apps}
+            contract={this.state.contract}
+            payout={this.state.payout}
+            pending={this.state.pending}
+            mUpdate={this.state.mUpdate}
+            pUpdate={this.state.pUpdate}
+            call={this.state.call}
+            callSub={this.state.callSub}
+            callAdd={this.state.callAdd}
+          />
+          </div>
         </div>
       </div>
     )

@@ -1,6 +1,3 @@
-// TODO
-// Display all weighted totals
-
 import React from 'react';
 import { checkZero, weightCalc } from '../functions';
 
@@ -17,6 +14,7 @@ class Outputs extends React.Component {
     }
   }
 
+  // calculates the collated NBO inputs
   calcNBO = () => {
     const a = checkZero(this.props.apps);
     const b = checkZero(this.props.contract);
@@ -24,6 +22,7 @@ class Outputs extends React.Component {
     return nbo;
   }
 
+  // calculates the collated payout inputs 
   calcPayout = () => {
     const a = checkZero(this.props.pending);
     const b = checkZero(this.props.payout);
@@ -31,6 +30,7 @@ class Outputs extends React.Component {
     return payout;
   }
 
+  // calculates and weights the collated update inputs 
   calcUpdate = () => {
     const a = checkZero(this.props.mUpdate);
     const b = checkZero(this.props.pUpdate);
@@ -38,18 +38,21 @@ class Outputs extends React.Component {
     return weightCalc(update);
   }
 
+  // calculates and weights the call inputs 
   calcCalls = () => {
     let call = checkZero(this.props.call);
-    console.log(call);
     const add = checkZero(this.props.callAdd);
     const sub = checkZero(this.props.callSub);
     if (add > 0 || sub > 0) {
-      call = ((call - sub) + add)
+      call = ((call - sub) + add);
       return weightCalc(call);
     }
     return weightCalc(call);
   }
 
+  // runs all the calculate functions
+  // and uses the returned values to output
+  // the total
   calcTotal = () => {
     const nbo = this.calcNBO();
     const payout = this.calcPayout();
@@ -59,6 +62,9 @@ class Outputs extends React.Component {
     return total;
   }
 
+  // runs the total function which
+  // subsiquently runs the other calc
+  // functions
   componentDidUpdate() {
     this.calcTotal()
   }

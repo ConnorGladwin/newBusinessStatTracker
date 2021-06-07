@@ -1,3 +1,6 @@
+// checks that the input number
+// and converts anything that isn't 
+// a number into a 0
 export function checkZero(num) {
   if (num === undefined || null) {
     return num = parseInt(0);
@@ -5,6 +8,7 @@ export function checkZero(num) {
   return parseInt(num)
 }
 
+// weights the input value
 export function weightCalc(num) {
   num = Math.ceil(num / 3);
   return num;

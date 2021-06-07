@@ -1,8 +1,22 @@
 // TODO
 
-import React from 'react'
+import React from 'react';
+import { checkZero } from '../functions';
 
 class Inputs extends React.Component {
+
+  calcCalls = () => {
+    let call = checkZero(this.props.call);
+    const add = checkZero(this.props.callAdd);
+    const sub = checkZero(this.props.callSub);
+    console.log(call);
+    if (add > 0 || sub > 0) {
+      call = ((call - sub) + add);
+      return call;
+    }
+    return call;
+  }
+
   render() {
     return (
       // Input fields
@@ -57,7 +71,7 @@ class Inputs extends React.Component {
               </div>
               <div className="w-full mx-2">
                 <label htmlFor="calcCalls" className="flex justify-start mb-2">Calculated Calls</label>
-                <p className="border-2 border-black rounded-md text-center">0</p>
+                <p className="border-2 border-black rounded-md text-center">{this.calcCalls()}</p>
               </div>
             </div>
           </div>
