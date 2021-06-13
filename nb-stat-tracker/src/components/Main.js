@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 import Inputs from './Inputs';
 import Outputs from './Outputs';
-import { reset } from '../functions'
 
 class Main extends React.Component {
 
@@ -26,43 +25,82 @@ class Main extends React.Component {
       contract: 0,
       pending: 0,
       payout: 0,
+      mUpdate: 0,
+      pUpdate:0,
       call: 0,
       callSub: 0,
       callAdd: 0,
-      total: 0
+      total: 0,
+      resetTrigger: 1
     }
+    this.baseState = this.state;
   }
 
   // recieves the value and id from the input component
   // and updates state, then sets it to localStorage
   calcStats = (value, id) => {
     this.setState((state) => {
-      return {[id]: value}
+      return {[id]: value} 
     });
+    this.setState({resetTrigger: this.state.resetTrigger + 1});
     // adds stats to localStorage
-    localStorage.setItem(id, value);
+    localStorage.setItem(id, parseInt(value));
   }
 
-  clearStats = event => {
+  resetState = () => {
+    this.setState(this.baseState);
+    // const currentState = this.state.apps;
+    const resetTrigger = this.state.resetTrigger;
+    if (resetTrigger < 1) {
+      this.resetState();
+    }
+  }
+
+  // clears localStorage and input fields, resets states 
+  clearStats = (event, form) => {
     if (
       window.confirm (
         'Clear stat tracker? - You will not be able to recover the input items'
       )
     ) {
       window.localStorage.clear();
+      this.resetState();
+      form.reset();
       console.log('Cleared');
     };
   }
 
+  getStats = () => {
+    for (let i = 0; i < localStorage.length; i++) {
+      console.log(JSON.stringify(localStorage.key(i)), window.localStorage.getItem(i));
+    }
+  }
+
+  componentDidMount() {
+    this.getStats();
+  }
+
   render() {
     return (
-      <div>
+      <form>
         <Navbar 
           clearStats={this.clearStats}
         />
         <div className="text-xl">
           <div className="flex mx-14 my-14">
-          <Inputs
+            <Inputs
+              apps={this.state.apps}
+              contract={this.state.contract}
+              payout={this.state.payout}
+              pending={this.state.pending}
+              mUpdate={this.state.mUpdate}
+              pUpdate={this.state.pUpdate}
+              call={this.state.call}
+              callAdd={this.state.callAdd}
+              callSub={this.state.callSub}
+              calcStats={this.calcStats}
+            />
+            <Outputs
             apps={this.state.apps}
             contract={this.state.contract}
             payout={this.state.payout}
@@ -70,24 +108,12 @@ class Main extends React.Component {
             mUpdate={this.state.mUpdate}
             pUpdate={this.state.pUpdate}
             call={this.state.call}
-            callAdd={this.state.callAdd}
-            callSub={this.state.callSub}
-            calcStats={this.calcStats}
-          />
-          <Outputs
-            apps={this.state.apps}
-            contract={this.state.contract}
-            payout={this.state.payout}
-            pending={this.state.pending}
-            mUpdate={this.state.mUpdate}
-            pUpdate={this.state.pUpdate}
-            call={this.state.call}
             callSub={this.state.callSub}
             callAdd={this.state.callAdd}
-          />
+            />
           </div>
         </div>
-      </div>
+      </form>
     )
   }
 }

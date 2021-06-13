@@ -9,7 +9,6 @@ class Inputs extends React.Component {
     let call = checkZero(this.props.call);
     const add = checkZero(this.props.callAdd);
     const sub = checkZero(this.props.callSub);
-    console.log(call);
     if (add > 0 || sub > 0) {
       call = ((call - sub) + add);
       return call;
@@ -33,7 +32,8 @@ class Inputs extends React.Component {
               {/* Contracts */}
               <div className="mx-2">
                 <label htmlFor="contract" className="flex justify-start mb-2">Contracts</label>
-                <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'contract')} />
+                <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md" placeholder="0"
+                 onChange={e => this.props.calcStats(e.target.value, 'contract')} />
               </div>
             </div>
             {/* Payouts */}
