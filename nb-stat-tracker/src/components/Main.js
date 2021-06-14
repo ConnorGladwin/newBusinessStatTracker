@@ -44,7 +44,7 @@ class Main extends React.Component {
     });
     this.setState({resetTrigger: this.state.resetTrigger + 1});
     // adds stats to localStorage
-    localStorage.setItem(id, parseInt(value));
+    localStorage.setItem(id, value);
   }
 
   resetState = () => {
@@ -71,8 +71,12 @@ class Main extends React.Component {
   }
 
   getStats = () => {
+    console.log(window.localStorage.getItem('apps'));
     for (let i = 0; i < localStorage.length; i++) {
-      console.log(JSON.stringify(localStorage.key(i)), window.localStorage.getItem(i));
+      const key = localStorage.key(i);
+      const value = window.localStorage.getItem(key);
+      console.log(key, value);
+      this.setState({[key]: value});
     }
   }
 
