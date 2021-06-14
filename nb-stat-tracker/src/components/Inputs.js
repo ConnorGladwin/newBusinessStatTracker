@@ -1,9 +1,44 @@
 // TODO
 
-import React from 'react'
+import React from 'react';
+import { checkZero } from '../functions';
 
 class Inputs extends React.Component {
+
+  calcCalls = () => {
+    let call = checkZero(this.props.call);
+    const add = checkZero(this.props.callAdd);
+    const sub = checkZero(this.props.callSub);
+    if (add > 0 || sub > 0) {
+      call = ((call - sub) + add);
+      return call;
+    }
+    return call;
+  }
+
   render() {
+
+    // pulls the latest value from localHost
+    // and applies it to the input field
+    let { appValue } = 0;
+    let { contractValue } = 0;
+    let { pendingValue } = 0;
+    let { payoutValue } = 0;
+    let { mUpdateValue } = 0;
+    let { pUpdateValue } = 0;
+    let { callValue } = 0;
+    let { callSubValue } = 0;
+    let { callAddValue} = 0;
+
+    function getValues() {
+      appValue = window.localStorage.getItem('apps');
+      contractValue = window.localStorage.getItem('contract');
+      pendingValue = window.localStorage.getItem('pending');
+      payoutValue = window.localStorage.getItem('payout');
+    }
+
+    getValues();
+
     return (
       // Input fields
       <div className="mx-auto">
@@ -14,12 +49,13 @@ class Inputs extends React.Component {
               {/* Apps */}
               <div className="mx-2">
                 <label htmlFor="apps" className="flex justify-start mb-2">Applications</label>
-                <input type="number" name="apps" id="apps" className="border-2 border-black rounded-md" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'apps')} />
+                <input type="number" name="apps" id="apps" className="border-2 border-black rounded-md" placeholder="0" value={appValue} onChange={e => this.props.calcStats(e.target.value, 'apps')} />
               </div>
               {/* Contracts */}
               <div className="mx-2">
                 <label htmlFor="contract" className="flex justify-start mb-2">Contracts</label>
-                <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'contract')} />
+                <input type="number" name="contract" id="contract" className="border-2 border-black rounded-md" placeholder="0" value={contractValue}
+                 onChange={e => this.props.calcStats(e.target.value, 'contract')} />
               </div>
             </div>
             {/* Payouts */}
@@ -27,12 +63,12 @@ class Inputs extends React.Component {
               {/* Pending */}
               <div className="mx-2">
                 <label htmlFor="pending" className="flex justify-start mb-2">Payout Pending</label>
-                <input type="number" name="pending" id="pending" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'pending')} />
+                <input type="number" name="pending" id="pending" className="border-2 border-black rounded-md mb-2" placeholder="0" value={pendingValue} onChange={e => this.props.calcStats(e.target.value, 'pending')} />
               </div>
               {/* Payout */}
               <div className="mx-2">
                 <label htmlFor="payout" className="flex justify-start mb-2">Payout</label>
-                <input type="number" name="payout" id="payout" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'payout')} />
+                <input type="number" name="payout" id="payout" className="border-2 border-black rounded-md mb-2" placeholder="0" value={payoutValue} onChange={e => this.props.calcStats(e.target.value, 'payout')} />
               </div>
             </div>
           </div>
@@ -57,7 +93,7 @@ class Inputs extends React.Component {
               </div>
               <div className="w-full mx-2">
                 <label htmlFor="calcCalls" className="flex justify-start mb-2">Calculated Calls</label>
-                <p className="border-2 border-black rounded-md text-center">0</p>
+                <p className="border-2 border-black rounded-md text-center">{this.calcCalls()}</p>
               </div>
             </div>
           </div>
