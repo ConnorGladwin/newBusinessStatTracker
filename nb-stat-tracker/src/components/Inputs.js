@@ -30,11 +30,19 @@ class Inputs extends React.Component {
     let { callSubValue } = 0;
     let { callAddValue} = 0;
 
+    // pulls the latest value from localHost
+    // and applies it to the input field
     function getValues() {
       appValue = window.localStorage.getItem('apps');
       contractValue = window.localStorage.getItem('contract');
       pendingValue = window.localStorage.getItem('pending');
       payoutValue = window.localStorage.getItem('payout');
+      mUpdateValue = window.localStorage.getItem('mUpdate');
+      pUpdateValue = window.localStorage.getItem('pUpdate');
+      callValue = window.localStorage.getItem('call');
+      callSubValue = window.localStorage.getItem('callSub');
+      callAddValue = window.localStorage.getItem('callAdd');
+
     }
 
     getValues();
@@ -78,18 +86,18 @@ class Inputs extends React.Component {
             <div className="flex border-2 border-black rounded-md mb-2 px-1 py-2">
               <div className="mx-2">
                 <label htmlFor="mUpadte" className="flex justify-start mb-2">Manual Update</label>
-                <input type="number" name="mUpdate" id="mUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'mUpdate')} />
+                <input type="number" name="mUpdate" id="mUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" value={mUpdateValue} onChange={e => this.props.calcStats(e.target.value, 'mUpdate')} />
               </div>
               <div className="mx-2">
                 <label htmlFor="pUpdate" className="flex justify-start mb-2">Podium Update</label>
-                <input type="number" name="pUpdate" id="pUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'pUpdate')} />
+                <input type="number" name="pUpdate" id="pUpdate" className="border-2 border-black rounded-md mb-2" placeholder="0" value={pUpdateValue} onChange={e => this.props.calcStats(e.target.value, 'pUpdate')} />
               </div>
             </div>
             {/* Calls */}
             <div className="flex mb-2">
               <div className="">
                 <label htmlFor="calls" className="flex justify-start mb-2">Calls</label>
-                <input type="number" name="calls" id="calls" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'call')} />
+                <input type="number" name="calls" id="calls" className="border-2 border-black rounded-md mb-2" placeholder="0" value={callValue} onChange={e => this.props.calcStats(e.target.value, 'call')} />
               </div>
               <div className="w-full mx-2">
                 <label htmlFor="calcCalls" className="flex justify-start mb-2">Calculated Calls</label>
@@ -103,11 +111,11 @@ class Inputs extends React.Component {
             <div className="flex">
               <div className="mx-2">
                 <label htmlFor="callSub" className="flex justify-start mb-2">Subtract</label>
-                <input type="number" name="callSub" id="callSub" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'callSub')} />
+                <input type="number" name="callSub" id="callSub" className="border-2 border-black rounded-md mb-2" placeholder="0" value={callSubValue} onChange={e => this.props.calcStats(e.target.value, 'callSub')} />
               </div>
               <div className="mx-2">
                 <label htmlFor="callAdd" className="flex justify-start mb-2">Add</label>
-                <input type="number" name="callAdd" id="callAdd" className="border-2 border-black rounded-md mb-2" placeholder="0" onChange={e => this.props.calcStats(e.target.value, 'callAdd')} />
+                <input type="number" name="callAdd" id="callAdd" className="border-2 border-black rounded-md mb-2" placeholder="0" value={callAddValue} onChange={e => this.props.calcStats(e.target.value, 'callAdd')} />
               </div>
             </div>
           </div>
