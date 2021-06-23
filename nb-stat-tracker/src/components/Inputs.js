@@ -1,7 +1,7 @@
 // TODO
 
 import React from 'react';
-import { checkZero } from '../functions';
+import { checkZero } from '../utils/functions';
 
 class Inputs extends React.Component {
 
