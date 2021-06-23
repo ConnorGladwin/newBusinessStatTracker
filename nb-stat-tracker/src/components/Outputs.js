@@ -1,5 +1,5 @@
 import React from 'react';
-import { checkZero, weightCalc } from '../functions';
+import { checkZero, weightCalc } from '../utils/functions';
 
 class Outputs extends React.Component {
 

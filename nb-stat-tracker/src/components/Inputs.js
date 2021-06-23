@@ -1,7 +1,7 @@
 // TODO
 
 import React from 'react';
-import { checkZero } from '../functions';
+import { checkZero } from '../utils/functions';
 
 class Inputs extends React.Component {
 
@@ -42,7 +42,6 @@ class Inputs extends React.Component {
       callValue = window.localStorage.getItem('call');
       callSubValue = window.localStorage.getItem('callSub');
       callAddValue = window.localStorage.getItem('callAdd');
-
     }
 
     getValues();
