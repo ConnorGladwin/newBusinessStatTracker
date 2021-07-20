@@ -42,6 +42,7 @@ class Main extends React.Component {
     this.setState((state) => {
       return {[id]: value} 
     });
+<<<<<<< Updated upstream
     this.setState({resetTrigger: this.state.resetTrigger + 1});
     // adds stats to localStorage
     localStorage.setItem(id, value);
@@ -82,6 +83,10 @@ class Main extends React.Component {
 
   componentDidMount() {
     this.getStats();
+=======
+
+    localStorage.setItem(id, value);
+>>>>>>> Stashed changes
   }
 
   render() {
