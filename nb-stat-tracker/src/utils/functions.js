@@ -2,9 +2,7 @@
 // and converts anything that isn't 
 // a number into a 0
 export function checkZero(num) {
-  if (num === undefined || null) {
-    return num = parseInt(0);
-  } else if (Number.isNaN(num)) {
+  if (Number.isNaN(num)) {
     return num = parseInt(0);
   }
   return parseInt(num)
