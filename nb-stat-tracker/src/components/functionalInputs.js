@@ -86,10 +86,10 @@ export default function FunctionalInputs() {
               <label htmlFor="callAdd" className="flex justify-start mb-2">Add</label>
               <input type="number" name="callAdd" id="callAdd" className="border-2 border-black rounded-md mb-2" placeholder="0"
               />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   )
 }
