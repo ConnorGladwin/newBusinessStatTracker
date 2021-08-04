@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './Navbar';
-import Inputs from './Inputs';
+// import Inputs from './Inputs';
+import FunctionalInputs from './functionalInputs';
 import Outputs from './Outputs';
 
 class Main extends React.Component {
@@ -92,18 +93,7 @@ class Main extends React.Component {
         />
         <div className="text-xl">
           <div className="flex mx-14 my-14">
-            <Inputs
-              apps={this.state.apps}
-              contract={this.state.contract}
-              payout={this.state.payout}
-              pending={this.state.pending}
-              mUpdate={this.state.mUpdate}
-              pUpdate={this.state.pUpdate}
-              call={this.state.call}
-              callAdd={this.state.callAdd}
-              callSub={this.state.callSub}
-              calcStats={this.calcStats}
-            />
+            <FunctionalInputs />
             <Outputs
             apps={this.state.apps}
             contract={this.state.contract}
