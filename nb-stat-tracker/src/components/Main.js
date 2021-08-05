@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 // import Inputs from './Inputs';
-import FunctionalInputs from './functionalInputs';
-import Outputs from './Outputs';
+import FunctionalInputs from './FunctionalInputs';
+// import Outputs from './Outputs';
+import FunctionalOutputs from './FunctionalOutputs'
 
 class Main extends React.Component {
 
@@ -94,7 +95,8 @@ class Main extends React.Component {
         <div className="text-xl">
           <div className="flex mx-14 my-14">
             <FunctionalInputs />
-            <Outputs
+            <FunctionalOutputs />
+            {/* <Outputs
             apps={this.state.apps}
             contract={this.state.contract}
             payout={this.state.payout}
@@ -104,7 +106,7 @@ class Main extends React.Component {
             call={this.state.call}
             callSub={this.state.callSub}
             callAdd={this.state.callAdd}
-            />
+            /> */}
           </div>
         </div>
       </form>
