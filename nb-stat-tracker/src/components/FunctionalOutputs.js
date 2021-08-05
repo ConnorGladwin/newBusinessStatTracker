@@ -1,4 +1,8 @@
 export default function FunctionalOutputs() {
+  function displayOutput() {
+    
+  }
+
   return(
     <div className="mx-auto">
       <div className="flex flex-col items-center justify-center h-full">

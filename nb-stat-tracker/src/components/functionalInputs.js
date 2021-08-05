@@ -1,10 +1,23 @@
-import { checkZero } from "../utils/functions";
+import { checkZero, calculateCalls } from "../utils/functions";
+import { useEffect, useState } from "react";
 
 export default function FunctionalInputs() {
+  let calcCalls;
+  
+  const [update, setUpdate] = useState(0);
   // Adds the value to localStorage
   function statsInput(value, id) {
-    localStorage.setItem(id, checkZero(value));
+    localStorage.setItem(id, parseInt(checkZero(value)));
+    setUpdate(update + 1);
   }
+
+  // TODO: useRef to pass value to the calc calls field
+  useEffect(() => {
+    let call = checkZero(localStorage.getItem('calls'));
+    let add = checkZero(localStorage.getItem('callAdd'));
+    let sub = checkZero(localStorage.getItem('callSub'));
+    return calcCalls = console.log(calculateCalls(call, add, sub));
+  });
 
   return (
     <div className="mx-auto">
@@ -64,12 +77,13 @@ export default function FunctionalInputs() {
             {/* Call Input */}
             <div>
               <label htmlFor="calls" className="flex justify-start mb-2">Calls</label>
-              <input type="number" name="calls" id="calls" className="border-2 border-black rounded-md mb-2" placeholder="0"/>
+              <input type="number" name="calls" id="calls" className="border-2 border-black rounded-md mb-2" placeholder="0"
+              onChange={e => statsInput(e.target.value, 'calls')}/>
             </div>
             {/* Calc Calls */}
             <div className="w-full mx-2">
               <label htmlFor="calcCalls" className="flex justify-start mb-2">Calculated Calls</label>
-              <p className="border-2 border-black rounded-md text-center">Calculated Calls</p>
+              <p className="border-2 border-black rounded-md text-center">{calcCalls}</p>
             </div>
           </div>
         </div>
@@ -80,11 +94,13 @@ export default function FunctionalInputs() {
             <div className="mx-2">
               <label htmlFor="callSub" className="flex justify-start mb-2">Subtract</label>
               <input type="number" name="callSub" id="callSub" className="border-2 border-black rounded-md mb-2" placeholder="0"
+              onChange={e => statsInput(e.target.value, 'callSub')}
               />
             </div>
             <div className="mx-2">
               <label htmlFor="callAdd" className="flex justify-start mb-2">Add</label>
               <input type="number" name="callAdd" id="callAdd" className="border-2 border-black rounded-md mb-2" placeholder="0"
+              onChange={e => statsInput(e.target.value, 'callAdd')}
               />
             </div>
           </div>

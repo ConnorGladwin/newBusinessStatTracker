@@ -13,3 +13,11 @@ export function weightCalc(num) {
   num = Math.ceil(num / 3);
   return num;
 }
+
+export function calculateCalls(call, add, sub) {
+  if (add > 0 || sub > 0) {
+    call = ((call - sub) + add);
+    return call;
+  }
+  return call;
+}

@@ -96,17 +96,6 @@ class Main extends React.Component {
           <div className="flex mx-14 my-14">
             <FunctionalInputs />
             <FunctionalOutputs />
-            {/* <Outputs
-            apps={this.state.apps}
-            contract={this.state.contract}
-            payout={this.state.payout}
-            pending={this.state.pending}
-            mUpdate={this.state.mUpdate}
-            pUpdate={this.state.pUpdate}
-            call={this.state.call}
-            callSub={this.state.callSub}
-            callAdd={this.state.callAdd}
-            /> */}
           </div>
         </div>
       </form>
