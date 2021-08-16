@@ -1,23 +1,23 @@
 import { checkZero, calculateCalls } from "../utils/functions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function FunctionalInputs() {
-  let calcCalls;
   
   const [update, setUpdate] = useState(0);
   // Adds the value to localStorage
   function statsInput(value, id) {
     localStorage.setItem(id, parseInt(checkZero(value)));
     setUpdate(update + 1);
+    callUpdater();
   }
-
-  // TODO: useRef to pass value to the calc calls field
-  useEffect(() => {
+  
+  
+  function callUpdater() {
     let call = checkZero(localStorage.getItem('calls'));
     let add = checkZero(localStorage.getItem('callAdd'));
     let sub = checkZero(localStorage.getItem('callSub'));
-    return calcCalls = console.log(calculateCalls(call, add, sub));
-  });
+    return calculateCalls(call, add, sub);
+  }
 
   return (
     <div className="mx-auto">
@@ -27,7 +27,7 @@ export default function FunctionalInputs() {
           <div className="flex border-2 border-black rounded-md mb-2 px-1 py-2">
             <div className="mx-2">
               <label htmlFor="apps" className="flex justify-start mb-2">Applications</label>
-              <input type="number" name="apps" id="apps" className="border-2 border-black rounded-md" placeholder="0" 
+              <input type="number" name="apps" id="apps" className="border-2 border-black rounded-md" value={checkZero(localStorage.getItem('apps'))} 
               onChange={e => statsInput(e.target.value, 'apps')}
               />
             </div>
@@ -83,7 +83,7 @@ export default function FunctionalInputs() {
             {/* Calc Calls */}
             <div className="w-full mx-2">
               <label htmlFor="calcCalls" className="flex justify-start mb-2">Calculated Calls</label>
-              <p className="border-2 border-black rounded-md text-center">{calcCalls}</p>
+              <p className="border-2 border-black rounded-md text-center">{checkZero(callUpdater())}</p>
             </div>
           </div>
         </div>

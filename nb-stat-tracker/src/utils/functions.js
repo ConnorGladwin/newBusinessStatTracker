@@ -4,6 +4,8 @@
 export function checkZero(num) {
   if (Number.isNaN(num)) {
     return num = parseInt(0);
+  } else if (!num) {
+    num = 0;
   }
   return parseInt(num)
 } 
